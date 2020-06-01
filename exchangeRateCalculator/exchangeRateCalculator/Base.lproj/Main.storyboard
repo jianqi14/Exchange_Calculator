@@ -223,6 +223,7 @@
                     </view>
                     <connections>
                         <outlet property="fromCountry" destination="GL2-p5-eIQ" id="z6B-Td-nEn"/>
+                        <outlet property="toCountry" destination="eOp-Di-uUe" id="wKt-qZ-2wH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
