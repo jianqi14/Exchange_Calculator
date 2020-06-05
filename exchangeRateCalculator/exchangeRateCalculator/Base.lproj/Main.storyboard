@@ -173,6 +173,9 @@
                                         <state key="normal" title="Click to Exchange">
                                             <color key="titleColor" red="0.14117647058823529" green="0.14509803921568626" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="conversion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tps-34-ryz"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpy-fp-8xr">
                                         <rect key="frame" x="8" y="65" width="309" height="35"/>
