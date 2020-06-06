@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  exchangeRateCalculator
 //
-//  Created by Jian Qi on 5/3/20.
+//  Created by Jian Qi on 6/6/20.
 //  Copyright © 2020 Jian Qi. All rights reserved.
 //
 

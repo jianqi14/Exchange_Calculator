@@ -1,121 +1,86 @@
-
 //
 //  ViewController.swift
 //  exchangeRateCalculator
 //
-//  Created by Jian Qi on 5/3/20.
+//  Created by Jian Qi on 6/6/20.
 //  Copyright © 2020 Jian Qi. All rights reserved.
 //
 
 import UIKit
 
-
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var fromCountry: UITextField!
-    @IBOutlet weak var toCountry: UITextField!
+    var myCurrency: [String] = []
+    var myValue: [Double] = []
+    var activeCurrency:Double = 0;
     
-    let fromPickView = UIPickerView()
-    let toPickView = UIPickerView()
+    @IBOutlet weak var input: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var output: UILabel!
     
-    let countryList1 = ["United States", "China", "Canada", "Australia", "Korea", "Singapore"]
-    let countryList2 = ["United States", "China", "Canada", "Australia", "Korea", "Singapore"]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fromPickView.dataSource = self
-        fromPickView.delegate = self
-        
-        toPickView.dataSource = self
-        toPickView.delegate = self
-        
-        fromPickView.tag = 1
-        toPickView.tag = 2;
-        
-        fromCountry.inputView = fromPickView
-        toCountry.inputView = toPickView
-        
-    }
-    
-    
-    //Picker View
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        
-        if pickerView == fromPickView {
-            return countryList1.count
-            
-        }else if pickerView == toPickView {
-            return countryList2.count
-            
+    @IBAction func convertButton(_ sender: UIButton) {
+        if(input.text != ""){
+            output.text = String(Double(input.text!)! * activeCurrency)
         }
-        
+    }
+    
+  
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return myCurrency.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return myCurrency[row]
         
-        if pickerView == fromPickView {
-            return countryList1[row]
-            
-        } else if pickerView == toPickView {
-            return countryList2[row]
-            
-        }
-        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if pickerView == fromPickView {
-            fromCountry.text = countryList1[row]
-            print("From Country: ", fromCountry.text!)
-            self.view.endEditing(false)
-            
-        }else if pickerView == toPickView {
-            toCountry.text = countryList2[row]
-            print("To Country: ", toCountry.text!)
-            self.view.endEditing(false)
-        }
+        activeCurrency = myValue[row]
     }
     
     
-    //Display API
-    @IBAction func conversion(_ sender: Any) {
-        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=1aa05abc802308a285acfb75012b7d22") else {
-            return
-        }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        let session = URLSession.shared
+        let url = URL(string: "http://data.fixer.io/api/latest?access_key=1aa05abc802308a285acfb75012b7d22")
         
-        session.dataTask(with: url) { (data, response, error) in
-            
-            if let data = data{
-                print(data)
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
+            if error != nil{
+                print("Error happened")
                 
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                    
-                } catch{
-                    print(error)
+            } else{
+                if let content = data{
+                    do{
+                        let jsonInfo = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        
+                        if let rates = jsonInfo["rates"] as? NSDictionary{
+                            
+                            for(key, value) in rates{
+                                self.myCurrency.append((key as? String)!)
+                                self.myValue.append((value as? Double)!)
+                            }
+                            
+                            print(self.myCurrency)
+                            print(self.myValue)
+                        }
+                        
+                    } catch {
+                        print("Error!!")
+                    }
                 }
             }
-        }.resume()
-    }
-    
+            self.pickerView.reloadAllComponents()
+        }
+        task.resume()
         
+
+    }
+
+
 }
-
-
-
-
 
