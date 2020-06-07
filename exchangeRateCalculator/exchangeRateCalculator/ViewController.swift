@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-  
+    // numberOfComponents, and the 3 pickerView Methods below are for the functionality of the Picker view of the country
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -42,11 +42,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         activeCurrency = myValue[row]
     }
     
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func exchangeRateAPI(){
         let url = URL(string: "http://data.fixer.io/api/latest?access_key=1aa05abc802308a285acfb75012b7d22")
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
@@ -58,13 +54,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     do{
                         let jsonInfo = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         
+                        
                         if let rates = jsonInfo["rates"] as? NSDictionary{
+                            
+                            
+                            print(rates)
                             
                             for(key, value) in rates{
                                 self.myCurrency.append((key as? String)!)
                                 self.myValue.append((value as? Double)!)
                             }
                             
+
                             print(self.myCurrency)
                             print(self.myValue)
                         }
@@ -77,10 +78,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.pickerView.reloadAllComponents()
         }
         task.resume()
-        
-
     }
+    
 
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        exchangeRateAPI()
+    }
+    
 }
 
