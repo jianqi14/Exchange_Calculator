@@ -7,6 +7,8 @@
 </p>
 
 <p align="center">
+    <img src="https://user-images.githubusercontent.com/40045109/83991822-dd891a00-a902-11ea-8e0f-fd67943a4a4f.gif" width="168">
+    
     <img src="https://imgflip.com/gif/44d4gp" width="168">
     <img src="https://imgflip.com/gif/44d4gp" width="168">
 </p>
