@@ -7,8 +7,14 @@
 </p>
 
 <p align="center">
+	<img src="https://user-images.githubusercontent.com/40045109/69617112-9681aa00-0fec-11ea-9564-abef401288ba.gif" width="168">
+	<img src="https://user-images.githubusercontent.com/40045109/69617626-52db7000-0fed-11ea-83ef-0324a43264fc.gif" width="168">
+	<img src="https://user-images.githubusercontent.com/40045109/69617649-5a9b1480-0fed-11ea-8c87-a37f6d937ae5.gif" width="168">
+</p>
+
+<p align="center">
     <img src=“https://user-images.githubusercontent.com/40045109/83992383-03172300-a905-11ea-8245-863770892a85.gif” width="168">
-        <img src=“https://user-images.githubusercontent.com/40045109/83992528-7b7de400-a905-11ea-98d6-000b118abb62.gif” width="168">
+   <img src=“https://user-images.githubusercontent.com/40045109/83992528-7b7de400-a905-11ea-98d6-000b118abb62.gif” width="168">
 </p>
 
 <h3>How I built this IOS App?</h3>
