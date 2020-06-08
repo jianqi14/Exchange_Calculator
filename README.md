@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-These are some Gif to see how the app works <br/>
-    <img src="https://user-images.githubusercontent.com/40045109/69617112-9681aa00-0fec-11ea-9564-abef401288ba.gif" width="168">
-    <img src="https://user-images.githubusercontent.com/40045109/69617626-52db7000-0fed-11ea-83ef-0324a43264fc.gif" width="168">
-    <img src="https://user-images.githubusercontent.com/40045109/69617649-5a9b1480-0fed-11ea-8c87-a37f6d937ae5.gif" width="168">
+These are some Gif to see how the app works <br/> <br/>
+    <img src="https://imgflip.com/gif/44d4gp" width="168">
+    <img src="https://imgflip.com/gif/44d4gp" width="168">
+    <img src="https://imgflip.com/gif/44d4gp" width="168">
 </p>
 
 <h3>How I built this IOS App?</h3>
