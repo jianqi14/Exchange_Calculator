@@ -7,10 +7,8 @@
 </p>
 
 <p align="center">
-
-<img src=“https://user-images.githubusercontent.com/40045109/83992383-03172300-a905-11ea-8245-863770892a85.gif” width="168">
-<img src= “https://user-images.githubusercontent.com/40045109/83992528-7b7de400-a905-11ea-98d6-000b118abb62.gif” =“168">
-
+    <img src=“https://user-images.githubusercontent.com/40045109/83992383-03172300-a905-11ea-8245-863770892a85.gif” width="168">
+        <img src=“https://user-images.githubusercontent.com/40045109/83992528-7b7de400-a905-11ea-98d6-000b118abb62.gif” width="168">
 </p>
 
 <h3>How I built this IOS App?</h3>
